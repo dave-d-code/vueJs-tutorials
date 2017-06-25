@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS tutorials from net ninja on YT</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="vue-app">
+		<h1>{{ greet('afternoon') }}</h1>
+		<h1>{{ name }}</h1>
+		<p>Job: {{ job }}</p>
+		<a v-bind:href="website">my site</a>
+		<a :href="website">shorthand</a>
+		<input type="text" v-bind:value="name"><br>
+		<p v-html="websiteTag"></p><hr>
+		<h1>Events</h1>
+		<button v-on:click="addAge(1)">Add a year</button>
+		<button v-on:click="subAge(1)">Subtract a year</button>
+		<button v-on:dblclick="addAge(10)">Add 10 years</button>
+		<button v-on:dblclick="subAge(10)">Subtract 10 years</button>
+		<p>My age is {{age}}</p>
+		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+
+	</div>
+	<script src="app.js"></script>
+</body>
+</html>
