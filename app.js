@@ -1,8 +1,9 @@
-new Vue({
-	el: '#vue-app',
+var one = new Vue({
+	el: '#vue-app-one',
 	data: {
 		name: 'shaun',
 		job: 'postman',
+		title: 'hello from app 1',
 		website: 'https://www.liveleak.com',
 		websiteTag: '<a href="https://www.liveleak.com">in model</a>',
 		age: 25,
@@ -74,4 +75,23 @@ new Vue({
 		},
 	}
 
+});
+
+var two = new Vue({
+	el: '#vue-app-two',
+	data: {
+		title: 'vue app 2',
+	},
+	methods: {
+		changeTitle: function() {
+			one.title ="title changed by app 2"
+		}
+
+	},
+	computed: {
+		greet: function() {
+			return 'this is app 2';
+		}
+
+	}
 });
