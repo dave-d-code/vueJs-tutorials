@@ -1,6 +1,6 @@
 // first is name, then properties
 Vue.component('greets', {
-	template: '<p>Hey there, I am {{ name }}</p> <button></button>',
+	template: `<p>Hey there, I am {{ name }}</p>`,
 	// data must be a function in components, not just an object, so that the object data does not get changed by components
 	data: function() {
 		return {
@@ -99,10 +99,14 @@ var two = new Vue({
 	el: '#vue-app-two',
 	data: {
 		title: 'vue app 2',
+		output: "Your favourate food",
 	},
 	methods: {
 		changeTitle: function() {
 			one.title ="title changed by app 2"
+		},
+		readRefs: function() { // this is big.. all the details of an element. console.log (this.$refs)
+			this.output = this.$refs.inputData.value
 		}
 
 	},
