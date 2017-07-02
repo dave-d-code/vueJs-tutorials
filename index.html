@@ -80,7 +80,39 @@
 				<span class="extra">second ryu</span>
 			</div>
 		</div>
-
+		<hr>
+		<h1>conditionals</h1>
+		<h2>v if</h2>
+		<button v-on:click="error =!error" >Toggle error</button>
+		<button v-on:click="success = !sucess">Toggle success</button>
+		<p v-if="error">There has been an error</p>
+		<p v-else-if="success">great success</p>
+		<h2>v show</h2>
+		<!-- <button v-show:click="error2 =!error2" >Toggle error</button>
+		<button v-show:click="success2 = !success2">Toggle success</button>
+		 element is not taken out of the dom. just has display: none -->
+		
+		<hr>
+		<h1>v for loops</h1>
+		<ul>
+			<li v-for="character in characters">{{ character }}</li>
+		</ul>
+		<ul>
+			<li v-for="(ninja, index) in ninjas">index position - {{index}} - {{ ninja.name }} - {{ ninja.age }}</li>
+		</ul>
+		<!-- you dont need to do this in li tags, what ever html u want -->
+		<!-- template tag means dont output to the browser -->
+		<template  v-for="(ninja, index) in ninjas">
+			<h3>{{ ninja.name }}</h3>
+			<h4>{{ ninja.age }}</h4>
+		</template>
+		<!-- this is how to loop through an object -->
+		<template v-for="ninja in ninjas">
+			<h5>key pair</h5>
+			<div v-for="(value, key) in ninja">
+				<p>{{ key }} - {{ value }}</p>
+			</div>
+		</template>
 
 	</div>
 	<script src="app.js"></script>

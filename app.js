@@ -17,6 +17,16 @@ new Vue({
 		bb: 0,
 		available: false,
 		nearby: false,
+		error: false,
+		success: false,
+		error2: false,
+		success2: false,
+		characters: ['mario', 'luigo', 'yusho','bowser'],
+		ninjas: [
+			{name: 'Ryu', age: 25},
+			{name: 'ping', age: 45},
+			{name: 'yuu', age: 15},
+		],
 	},
 	methods: {
 		greet: function(time) {
