@@ -1,3 +1,21 @@
+// first is name, then properties
+Vue.component('greets', {
+	template: '<p>Hey there, I am {{ name }}</p> <button></button>',
+	// data must be a function in components, not just an object, so that the object data does not get changed by components
+	data: function() {
+		return {
+			name: 'Yoshi'
+		}
+	},
+	methods: {
+		changeName: function() {
+			this.name = 'mario';
+		}
+	}
+});
+
+
+
 var one = new Vue({
 	el: '#vue-app-one',
 	data: {
