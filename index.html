@@ -16,12 +16,71 @@
 		<input type="text" v-bind:value="name"><br>
 		<p v-html="websiteTag"></p><hr>
 		<h1>Events</h1>
-		<button v-on:click="addAge(1)">Add a year</button>
+		<button v-on:click.once="addAge(1)">Add a year</button>
 		<button v-on:click="subAge(1)">Subtract a year</button>
 		<button v-on:dblclick="addAge(10)">Add 10 years</button>
 		<button v-on:dblclick="subAge(10)">Subtract 10 years</button>
 		<p>My age is {{age}}</p>
 		<div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+
+		<a v-on:click.prevent="clickLink" href="https://www.google.co.uk">google</a>
+
+		<div>
+			<h1>keyboard events</h1>
+			<label>Name:</label>
+			<input type="text" v-on:keyup.enter="">
+			<label>Age:</label>
+			<input type="text" v-on:keyup.alt.enter="">
+		</div>
+
+		<div>
+			<h1>keyboard events</h1>
+			<label>Name:</label>
+			<input type="text" v-model="iname">
+			<span>{{ iname }}</span>
+			<label>Age:</label>
+			<input type="text" v-model="iage">
+			<span>{{ iage }}</span>
+		</div>
+		<hr>
+		<div>
+			<h1>computed properties - ineffeicent way</h1>
+			<button v-on:click="a++">Add to A</button>
+			<button v-on:click="b++">Add to B</button>
+			<p>A: {{ a }}</p>
+			<p>B: {{ b }}</p>
+			<p>Age + A = {{ addToA() }}</p>
+			<p>Age + B = {{ addToB() }}</p>
+			<!-- doing this above will mean all the functions run regardless of being called -->
+			<!-- this is not efficient, dont use methods, but computed instead -->
+		</div>
+		<hr>
+		<div>
+			<h1>computed properties - effeicent way</h1>
+			<button v-on:click="aa++">Add to A</button>
+			<button v-on:click="bb++">Add to B</button>
+			<p>A: {{ aa }}</p>
+			<p>B: {{ bb }}</p>
+			<p>Age + A = {{ addToAA }}</p>
+			<p>Age + B = {{ addToBB }}</p>
+			<!-- computed properties are properties acting like methods, but are properties -->
+			<!-- hence dont use () -->
+		</div>
+		<hr>
+		<div>
+			<h2>Dynamic CSS</h2>
+			<p>Example 1</p>
+			<div v-on:click="available = !available" v-bind:class="{available: available}">
+				<span class="extra"> Ryu</span>
+			</div>
+			<p>Example 2</p>
+			<div v-bind:class="compClasses">
+			<button v-on:click="nearby = !nearby">Toggle nearby</button>
+			<button v-on:click="available = !available">Toggle available</button>
+				<span class="extra">second ryu</span>
+			</div>
+		</div>
+
 
 	</div>
 	<script src="app.js"></script>
